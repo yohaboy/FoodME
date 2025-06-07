@@ -52,7 +52,7 @@ class UserPreference(models.Model):
         ('general_wellness', 'General Wellness'),
     ]
 
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE , null=True, blank=True)
     preferred_time = models.CharField(max_length=15, choices=TIME_CHOICES)
     mood = models.CharField(max_length=30, choices=MOOD_CHOICES)
     diet_type = models.CharField(max_length=30, choices=DIET_CHOICES)

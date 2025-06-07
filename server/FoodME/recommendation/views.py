@@ -7,15 +7,17 @@ from rest_framework import status
 from .models import FoodRecommendation ,RestaurantRecommendation ,UserPreference
 from .serializers import FoodSerializer,ResturantSerializer,PreferenceSerializer
 
-API_KEY = "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"
+API_KEY = "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"
 
 class GetRecommendationView(APIView):
     def post(self , request):
+        print("Raw request data:", request.data)
         serializer = PreferenceSerializer(data = request.data)
         if not serializer.is_valid():
+            print("Serializer errors:", serializer.errors)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
-        preference = serializer.save(user=request.user)
+        preference = serializer.save(user=request.user if request.user.is_authenticated else None)
 
         mood = preference.mood
         diet_type = preference.diet_type
@@ -47,7 +49,7 @@ class GetRecommendationView(APIView):
             - Cost between {cost_range_min} and {cost_range_max} dollars
             - Have a spice level of {spice_level}
 
-              Only reply with the 3 food names, separated by commas. Do not include any explanations, numbers, or extra text.
+              Only reply with the 3 food names, separated by commas. Do not include any explanations, numbers, or extra text. and then search the name of the first food and give me the url of the matching image of that food
                 """.strip()
             }
             ],            
@@ -58,20 +60,22 @@ class GetRecommendationView(APIView):
             result = response.json()
             message = result["choices"][0]["message"]["content"]
             food_recommendations = [item.strip() for item in message.split(",")]
+
+            food_rec = FoodRecommendation.objects.create(
+                    preference=preference,
+                    name=f'{food_recommendations[0]}',
+                    description=f"Recommended based on your mood , diet and fund",
+                    estimated_cost=(preference.cost_range_min + preference.cost_range_max) / 2
+                )
+            recommeded_food = FoodSerializer(food_rec)
             print("Food recommendations:", food_recommendations)
+
+            return Response(recommeded_food.data , status=status.HTTP_201_CREATED)
+
         except Exception as e:
             print("Error extracting response:", e)
             print("Raw response:", response.text)
+            return Response('Unable to fetch from the api')
 
-        
-        food_rec = FoodRecommendation.objects.create(
-                preference=preference,
-                name=f'{food_recommendations[0]}',
-                description=f"Recommended based on your mood , diet and fund",
-                estimated_cost=(preference.cost_range_min + preference.cost_range_max) / 2
-            )
-        recommeded_food = FoodSerializer(food_rec)
-        
-        return Response(recommeded_food.data , status=status.HTTP_201_CREATED)
  
 
