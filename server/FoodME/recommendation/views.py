@@ -1,5 +1,6 @@
 import requests
 import json
+from django.conf import settings
 from django.shortcuts import render , HttpResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -7,16 +8,14 @@ from rest_framework import status
 from .models import FoodRecommendation ,RestaurantRecommendation ,UserPreference
 from .serializers import FoodSerializer,ResturantSerializer,PreferenceSerializer
 
-API_KEY = "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"
-
 class GetRecommendationView(APIView):
+    API_KEY = settings.API_KEY
     def post(self , request):
-        print("Raw request data:", request.data)
         serializer = PreferenceSerializer(data = request.data)
         if not serializer.is_valid():
             print("Serializer errors:", serializer.errors)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+                
         preference = serializer.save(user=request.user if request.user.is_authenticated else None)
 
         mood = preference.mood
@@ -31,7 +30,7 @@ class GetRecommendationView(APIView):
         response = requests.post(
         url="https://openrouter.ai/api/v1/chat/completions",
         headers={
-            "Authorization": f"Bearer {API_KEY}",
+            "Authorization": f"Bearer {self.API_KEY}",
             "Content-Type": "application/json",
         },
         data=json.dumps({
@@ -57,7 +56,10 @@ class GetRecommendationView(APIView):
         )
 
         try:
+            print("to be called ......")
             result = response.json()
+            print(result)
+            print("called !!!")
             message = result["choices"][0]["message"]["content"]
             food_recommendations = [item.strip() for item in message.split(",")]
 
