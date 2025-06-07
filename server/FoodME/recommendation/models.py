@@ -61,9 +61,11 @@ class UserPreference(models.Model):
     health_goal = models.CharField(max_length=30, choices=HEALTH_GOAL_CHOICES)
     cost_range_min = models.DecimalField(max_digits=6, decimal_places=2)
     cost_range_max = models.DecimalField(max_digits=6, decimal_places=2)
-    location = models.CharField(max_length=100)
+    location = models.CharField(max_length=100, blank = True , null = True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.diet_type
 
 class FoodRecommendation(models.Model):
     preference = models.ForeignKey(UserPreference, on_delete=models.CASCADE)
