@@ -5,164 +5,158 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import type { ReactNode } from "react";
 
-function HomePage() {
+interface PreferenceItemProps {
+  label: string;
+  children: ReactNode;
+}
+
+function PreferenceItem({ label, children }: PreferenceItemProps) {
   return (
-    <>
-      <div className="relative flex size-full min-h-screen flex-col bg-[#101923] dark group/design-root overflow-x-hidden">
-        <div className="layout-container flex h-full grow flex-col">
-          <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223449] px-10 py-3">
-            <div className="flex items-center gap-4 text-white">
-              <div className="size-4">
-                <svg
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">
-                Recipe Preferences
-              </h2>
-            </div>
-            <div className="flex flex-1 justify-end gap-8">
-              <div className="flex items-center gap-9">
-                <a
-                  className="text-white text-md font-medium leading-normal"
-                  href=""
-                >
-                  Home
-                </a>
-                <a
-                  className="text-white text-md font-medium leading-normal"
-                  href="#"
-                >
-                  About
-                </a>
-                <a
-                  className="text-white text-md font-medium leading-normal"
-                  href="#"
-                >
-                  Contact
-                </a>
-              </div>
-            </div>
-          </header>
-          <div className="px-40 flex flex-1 justify-center py-5">
-            <div className="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
-              <h2 className="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">
-                Tell us about your recipe preferences
-              </h2>
-              <p className="text-white text-base font-normal leading-normal pb-3 pt-1 px-4 text-center">
-                We'll use this information to tailor your recipe
-                recommendations.
-              </p>
-              <div className="flex gap-28 items-center justify-center mt-4">
-                <div>
-                  <div className="flex max-w-[350px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label className="flex flex-col min-w-40 flex-1">
-                      <Select>
-                        <SelectTrigger className="w-60 h-14 text-white rounded-xl px-4 text-base font-normal">
-                          <SelectValue placeholder="Select Ingredients" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-[#223449] text-white">
-                          <SelectItem value="one">one</SelectItem>
-                          <SelectItem value="two">two</SelectItem>
-                          <SelectItem value="three">three</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </label>
-                  </div>
-                  <div className="flex max-w-[350px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label className="flex flex-col min-w-40 flex-1">
-                      <Select>
-                        <SelectTrigger className="w-60 h-14 text-white rounded-xl px-4 text-base font-normal">
-                          <SelectValue placeholder="Select Ingredients" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-[#223449] text-white">
-                          <SelectItem value="one">one</SelectItem>
-                          <SelectItem value="two">two</SelectItem>
-                          <SelectItem value="three">three</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </label>
-                  </div>
-                  <div className="flex max-w-[350px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label className="flex flex-col min-w-40 flex-1">
-                      <Select>
-                        <SelectTrigger className="w-60 h-14 text-white rounded-xl px-4 text-base font-normal">
-                          <SelectValue placeholder="Select Ingredients" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-[#223449] text-white">
-                          <SelectItem value="one">one</SelectItem>
-                          <SelectItem value="two">two</SelectItem>
-                          <SelectItem value="three">three</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex max-w-[350px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label className="flex flex-col min-w-40 flex-1">
-                      <Select>
-                        <SelectTrigger className="w-60 h-14 text-white rounded-xl px-4 text-base font-normal">
-                          <SelectValue placeholder="Select Ingredients" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-[#223449] text-white">
-                          <SelectItem value="one">one</SelectItem>
-                          <SelectItem value="two">two</SelectItem>
-                          <SelectItem value="three">three</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </label>
-                  </div>
-                  <div className="flex max-w-[350px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label className="flex flex-col min-w-40 flex-1">
-                      <Select>
-                        <SelectTrigger className="w-60 h-14 text-white rounded-xl px-4 text-base font-normal">
-                          <SelectValue placeholder="Select Ingredients" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-[#223449] text-white">
-                          <SelectItem value="one">one</SelectItem>
-                          <SelectItem value="two">two</SelectItem>
-                          <SelectItem value="three">three</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </label>
-                  </div>
-                  <div className="flex max-w-[350px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label className="flex flex-col min-w-40 flex-1">
-                      <Select>
-                        <SelectTrigger className="w-60 h-14 text-white rounded-xl px-4 text-base font-normal">
-                          <SelectValue placeholder="Select Ingredients" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-[#223449] text-white">
-                          <SelectItem value="one">one</SelectItem>
-                          <SelectItem value="two">two</SelectItem>
-                          <SelectItem value="three">three</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div className="flex px-4 py-3 items-center justify-center mt-4">
-                <button className="flex max-w-[300px] py-6 cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 flex-1 bg-[#0c77f2] text-white text-md font-bold leading-normal tracking-[0.015em]">
-                  <span className="truncate">Submit Preferences</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <div className="flex flex-col gap-8 px-4 py-3 w-full max-w-md">
+      <label className="text-white font-medium text-xl px-1">{label}</label>
+      {children}
+    </div>
   );
 }
 
-export default HomePage;
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-black text-white flex flex-col gap-8">
+      <header className="flex items-center justify-between px-10 py-4">
+        <div className="flex items-center gap-4">
+          <div className="text-blue-500 font-bold text-xl mx-4">🍽️</div>
+          <h1 className="text-xl font-bold">FeedME</h1>
+        </div>
+        <nav className="flex gap-8">
+          <a href="#" className="text-white hover:text-blue-400">
+            Home
+          </a>
+          <a href="#" className="text-white hover:text-blue-400">
+            About
+          </a>
+          <a href="#" className="text-white hover:text-blue-400">
+            Contact
+          </a>
+        </nav>
+      </header>
+      <div className="flex items-center justify-center">
+        <div className="w-2/3 pr-8">
+          <h2 className="text-3xl font-bold text-center mb-2">
+            Tell us about your overall preferences
+          </h2>
+          <p className="text-center text-lg text-gray-300 mb-8">
+            We'll then recommend you best foods that fit your choice.
+          </p>
+        </div>
+      </div>
+
+      <main className="flex mx-[50px] justify-between">
+        <div className="w-2/3 pr-8 flex flex-col">Images Go HERE</div>
+        <section className="w-1/3 h-[600px] flex items-center justify-end px-4">
+          <div className="max-w-2xl w-full border rounded-md p-4 flex flex-col items-center">
+            {/* Mood Select */}
+            <PreferenceItem label="Mood">
+              <Select>
+                <SelectTrigger className="w-full h-12 rounded-lg px-4 bg-[#223449]">
+                  <SelectValue placeholder="Select your mood" />
+                </SelectTrigger>
+                <SelectContent className="bg-[#223449] text-white">
+                  <SelectItem value="happy">Happy</SelectItem>
+                  <SelectItem value="sad">Sad</SelectItem>
+                  <SelectItem value="lazy">Lazy</SelectItem>
+                </SelectContent>
+              </Select>
+            </PreferenceItem>
+
+            {/* Diet Type */}
+            <PreferenceItem label="Diet Type">
+              <RadioGroup
+                defaultValue="none"
+                className="flex gap-4 items-center"
+              >
+                <div className="flex items-center gap-2">
+                  <RadioGroupItem
+                    value="vegan"
+                    id="vegan"
+                    className="radio-group-item w-4 h-4 border border-gray-300"
+                  />
+                  <label htmlFor="vegan">Vegan</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <RadioGroupItem
+                    value="keto"
+                    id="keto"
+                    className="radio-group-item w-4 h-4 border border-gray-300"
+                  />
+                  <label htmlFor="keto">Keto</label>
+                </div>
+                <div className="flex items-center gap-2">
+                  <RadioGroupItem
+                    value="none"
+                    id="none"
+                    className="radio-group-item w-4 h-4 border border-gray-300"
+                  />
+                  <label htmlFor="none">None</label>
+                </div>
+              </RadioGroup>
+            </PreferenceItem>
+
+            {/* Preferred Time */}
+            <PreferenceItem label="Preferred Meal Time">
+              <Select>
+                <SelectTrigger className="w-full h-12 rounded-lg px-4 bg-[#223449]">
+                  <SelectValue placeholder="Choose meal time" />
+                </SelectTrigger>
+                <SelectContent className="bg-[#223449] text-white">
+                  <SelectItem value="breakfast">Breakfast</SelectItem>
+                  <SelectItem value="lunch">Lunch</SelectItem>
+                  <SelectItem value="dinner">Dinner</SelectItem>
+                </SelectContent>
+              </Select>
+            </PreferenceItem>
+
+            {/* Serving Size */}
+            <PreferenceItem label="Serving Size">
+              <Slider defaultValue={[2]} max={10} step={1} className="w-full" />
+            </PreferenceItem>
+
+            {/* Health Goal */}
+            <PreferenceItem label="Health Goal">
+              <Select>
+                <SelectTrigger className="w-full h-12 rounded-lg px-4 bg-[#223449]">
+                  <SelectValue placeholder="Choose a goal" />
+                </SelectTrigger>
+                <SelectContent className="bg-[#223449] text-white">
+                  <SelectItem value="weight-loss">Weight Loss</SelectItem>
+                  <SelectItem value="muscle-gain">Muscle Gain</SelectItem>
+                  <SelectItem value="energy">Energy Boost</SelectItem>
+                </SelectContent>
+              </Select>
+            </PreferenceItem>
+            {/* Spice Level */}
+            <PreferenceItem label="Spice Level">
+              <RadioGroup defaultValue="medium" className="flex gap-4">
+                <RadioGroupItem value="mild" id="mild" />
+                <label htmlFor="mild">Mild</label>
+                <RadioGroupItem value="medium" id="medium" />
+                <label htmlFor="medium">Medium</label>
+                <RadioGroupItem value="hot" id="hot" />
+                <label htmlFor="hot">Hot</label>
+              </RadioGroup>
+            </PreferenceItem>
+
+            <div className="flex justify-center mt-6">
+              <button className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-lg font-bold text-white">
+                Submit Preferences
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

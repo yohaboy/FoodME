@@ -1,18 +1,29 @@
 import { useState } from "react";
 
-const RecommendationForm = () => {
+interface MyChoice {
+  mood: String;
+  diet_type: String;
+  preferred_time: String;
+  serving_size: String;
+  health_goal: String;
+  cost_range_min: Number;
+  cost_range_max: Number;
+  spice_level: String;
+}
+
+function RecommendationForm(props: MyChoice) {
   const [FinalRecommendation, setFinalRecommendation] = useState("");
 
   const sendPreferences = async () => {
     const data = {
-      mood: "energized",
-      diet_type: "vegan",
-      preferred_time: "dinner",
-      serving_size: "solo",
-      health_goal: "weight_loss",
-      cost_range_min: 5,
-      cost_range_max: 15,
-      spice_level: "medium",
+      mood: props.mood,
+      diet_type: props.diet_type,
+      preferred_time: props.preferred_time,
+      serving_size: props.serving_size,
+      health_goal: props.health_goal,
+      cost_range_min: props.cost_range_min,
+      cost_range_max: props.cost_range_max,
+      spice_level: props.spice_level,
     };
 
     try {
@@ -39,6 +50,6 @@ const RecommendationForm = () => {
       <div>{FinalRecommendation && <>🍽️ {FinalRecommendation}</>}</div>
     </div>
   );
-};
+}
 
 export default RecommendationForm;

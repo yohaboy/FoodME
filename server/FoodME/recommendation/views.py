@@ -39,7 +39,7 @@ class GetRecommendationView(APIView):
             {
                 "role": "user",
             "content": f"""
-              Give me 3 food recommendations separated by a comma only. The foods should:
+              Give me 3 well known common food recommendations separated by a comma only. The foods should:
             - Match a {diet_type} diet
             - Fit a {mood} mood
             - Be suitable to eat at {preferred_time}
@@ -48,7 +48,7 @@ class GetRecommendationView(APIView):
             - Cost between {cost_range_min} and {cost_range_max} dollars
             - Have a spice level of {spice_level}
 
-              Only reply with the 3 food names, separated by commas. Do not include any explanations, numbers, or extra text. and then search the name of the first food and give me the url of the matching image of that food
+              Only reply with the 3 food names, separated by commas. Do not include any explanations, numbers, or extra text.
                 """.strip()
             }
             ],            
@@ -56,19 +56,31 @@ class GetRecommendationView(APIView):
         )
 
         try:
-            print("to be called ......")
             result = response.json()
             print(result)
-            print("called !!!")
             message = result["choices"][0]["message"]["content"]
             food_recommendations = [item.strip() for item in message.split(",")]
+
+            headers = {
+                "Authorization": settings.IMAGE_API_KEY
+            }
+            params = {
+                "query": food_recommendations[0],
+                "per_page": 1
+            }
+
+            response = requests.get("https://api.pexels.com/v1/search", headers=headers, params=params)
+            data = response.json()
+            image_url = data['photos'][0]['src']['medium']
 
             food_rec = FoodRecommendation.objects.create(
                     preference=preference,
                     name=f'{food_recommendations[0]}',
                     description=f"Recommended based on your mood , diet and fund",
-                    estimated_cost=(preference.cost_range_min + preference.cost_range_max) / 2
+                    estimated_cost=(preference.cost_range_min + preference.cost_range_max) / 2,
+                    image_url = image_url
                 )
+            
             recommeded_food = FoodSerializer(food_rec)
             print("Food recommendations:", food_recommendations)
 
