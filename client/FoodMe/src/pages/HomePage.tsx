@@ -57,7 +57,7 @@ export default function HomePage() {
       <main className="flex mx-[50px] justify-between">
         <div className="w-2/3 pr-8 flex flex-col">Images Go HERE</div>
         <section className="w-1/3 h-[600px] flex items-center justify-end px-4">
-          <div className="max-w-2xl w-full border rounded-md p-4 flex flex-col items-center">
+          <div className="max-w-2xl w-full rounded-2xl p-4 flex flex-col items-center shadow-[0_4px_20px_rgba(255,255,255,0.05),0_1px_3px_rgba(255,255,255,0.1)] bg-[#111]">
             {/* Mood Select */}
             <PreferenceItem label="Mood">
               <Select>
