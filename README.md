@@ -22,24 +22,6 @@ FoodME is an AI-powered food recommendation web application that suggests meals 
 
 ---
 
-## 📁 Project Structure
-
-FoodME/
-├── server/             # Django project
-│   ├── manage.py
-│   ├── foodme/          # Django project settings
-│   ├── recommender/     # App for AI recommendation logic
-│   ├── ...
-├── client/            # React project
-│   ├── public/
-│   ├── src/
-│   ├── package.json
-│   ├── ...
-├── README.md
-└── requirements.txt
-
----
-
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the repository
