@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { LogIn, Mail, Lock, Loader2, ArrowRight } from "lucide-react";
-import { useAuth } from "@/context/AuthContext";
+import { Mail, Lock, Loader2, ArrowRight } from "lucide-react";
+import { useAuth } from "../context/AuthContext";
 
 export default function LoginPage() {
     const navigate = useNavigate();
@@ -41,29 +41,29 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="container-custom pt-32 pb-24">
+        <div className="container-custom pt-24 sm:pt-32 pb-24 px-6 sm:px-10">
             <div className="max-w-2xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="space-y-20"
+                    className="space-y-12 sm:space-y-20"
                 >
-                    <div className="space-y-8">
-                        <h1 className="text-6xl sm:text-8xl font-bold tracking-tighter leading-none">SIGN_IN.</h1>
-                        <p className="text-text-muted text-xl font-light max-w-md">Authenticate to access your neural culinary profile.</p>
+                    <div className="space-y-6 sm:space-y-8">
+                        <h1 className="text-5xl sm:text-8xl font-bold tracking-tighter leading-none">SIGN_IN.</h1>
+                        <p className="text-text-muted text-lg sm:text-xl font-light max-w-md">Authenticate to access your neural culinary profile.</p>
                     </div>
 
                     {error && (
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-text-base bg-bg-surface py-6 px-8 border border-border-base rounded-2xl"
+                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-text-base bg-bg-surface py-5 sm:py-6 px-6 sm:px-8 border border-border-base rounded-2xl"
                         >
                             {error}
                         </motion.div>
                     )}
 
-                    <form onSubmit={handleSubmit} className="space-y-12">
+                    <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12">
                         <div className="space-y-4">
                             <label className="block text-[10px] font-bold uppercase tracking-[0.4em] text-text-muted ml-2">Email Identifier</label>
                             <div className="relative">
@@ -71,7 +71,7 @@ export default function LoginPage() {
                                 <input
                                     type="email"
                                     required
-                                    className="input-field pl-16 h-20 text-lg"
+                                    className="input-field pl-16 h-16 sm:h-20 text-base sm:text-lg"
                                     placeholder="identity@foodme.ai"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -86,7 +86,7 @@ export default function LoginPage() {
                                 <input
                                     type="password"
                                     required
-                                    className="input-field pl-16 h-20 text-lg"
+                                    className="input-field pl-16 h-16 sm:h-20 text-base sm:text-lg"
                                     placeholder="••••••••"
                                     value={formData.password}
                                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -97,7 +97,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="btn-primary w-full h-20 text-base"
+                            className="btn-primary w-full h-16 sm:h-20 text-sm sm:text-base"
                         >
                             {loading ? <Loader2 className="animate-spin" size={24} /> : (
                                 <div className="flex items-center gap-4">

@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Design tokens as plain CSS variables */
 :root {
+    --font-sans: "Inter", sans-serif;
     --bg-base: #ffffff;
     --bg-surface: #f7f7f7;
     --text-base: #000000;
@@ -24,13 +23,28 @@
     --selection-text: #000000;
 }
 
+/* Map tokens into Tailwind theme variables */
+@theme inline {
+    --font-sans: "Inter", sans-serif;
+
+    /* Colors -> utilities like bg-bg-base, text-text-base, border-border-base, etc. */
+    --color-bg-base: var(--bg-base);
+    --color-bg-surface: var(--bg-surface);
+    --color-text-base: var(--text-base);
+    --color-text-muted: var(--text-muted);
+    --color-border-base: var(--border-base);
+}
+
+/* Base styles */
 @layer base {
     body {
-        @apply bg-bg-base text-text-base font-['Inter', sans-serif] antialiased;
+        @apply bg-bg-base text-text-base antialiased;
+        font-family: var(--font-sans);
         transition: background-color 0.5s ease, color 0.5s ease;
     }
 }
 
+/* Components */
 @layer components {
     .container-custom {
         @apply max-w-[1440px] mx-auto;
@@ -46,6 +60,10 @@
 
     .btn-secondary {
         @apply bg-bg-surface text-text-base border border-border-base px-10 py-5 rounded-full font-bold text-[10px] uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all hover:border-text-muted active:scale-95;
+    }
+
+    .btn-blue {
+        @apply bg-text-base text-blue-600 px-10 py-5 rounded-full font-bold text-[10px] uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all hover:opacity-90 active:scale-95 shadow-lg hover:shadow-xl;
     }
 
     .input-field {

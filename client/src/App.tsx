@@ -9,6 +9,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import NotFound from "./pages/NotFound";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
                             <Route path="/register" element={<RegisterPage />} />
                             <Route path="/about" element={<AboutPage />} />
                             <Route path="/contact" element={<ContactPage />} />
+                            <Route path="/profile" element={<ProfilePage />} />
+                            <Route path="*" element={<NotFound />} />
                         </Routes>
                     </Layout>
                 </Router>
