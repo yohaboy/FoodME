@@ -46,15 +46,15 @@ export default function Hero({ onStart }: HeroProps) {
                     className="space-y-6"
                 >
                     <h1 className="text-5xl sm:text-7xl font-light tracking-[0.15em] uppercase leading-none">
-                        Neural <br />
-                        <span className="font-bold">Gastronomy</span>
+                        Smart <br />
+                        <span className="font-bold">Dining</span>
                     </h1>
 
                     <div className="h-[1px] w-12 bg-text-base/20 mx-auto" />
 
                     <p className="text-text-muted text-[10px] sm:text-xs font-bold tracking-[0.4em] uppercase max-w-md mx-auto leading-loose">
-                        Synthesizing the future of <br />
-                        personalized culinary roadmaps.
+                        Discovering the perfect meal <br />
+                        tailored to your taste and mood.
                     </p>
                 </motion.div>
 
@@ -68,7 +68,7 @@ export default function Hero({ onStart }: HeroProps) {
                         onClick={onStart}
                         className="group relative inline-flex items-center gap-6 text-[10px] font-bold uppercase tracking-[0.5em] py-5 px-12 border border-text-base/10 rounded-full hover:bg-text-base hover:text-bg-base transition-all duration-700 ease-in-out"
                     >
-                        Begin Synthesis
+                        Start Discovery
                         <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform duration-500" />
                     </button>
                 </motion.div>
@@ -79,7 +79,7 @@ export default function Hero({ onStart }: HeroProps) {
                 <div className="flex items-center gap-4">
                     <div className="w-8 h-[1px] bg-text-base/10" />
                     <span className="text-[8px] font-bold uppercase tracking-[0.5em] text-text-muted/40">
-                        V2.0.4 / CORE
+                        V2.0 / AI POWERED
                     </span>
                 </div>
             </div>

@@ -11,7 +11,7 @@ export default function AboutPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-[clamp(3rem,10vw,12rem)] font-bold tracking-tighter leading-[0.8] w-full whitespace-nowrap"
                     >
-                        Mapping the <span className="text-text-muted italic font-light">Human Palate.</span>
+                        Personalized <span className="text-text-muted italic font-light">Food Discovery.</span>
                     </motion.h1>
                 </header>
 
@@ -21,9 +21,9 @@ export default function AboutPage() {
                             <Brain size={24} />
                         </div>
                         <div className="space-y-4">
-                            <h3 className="text-2xl font-bold tracking-tight">Neural Synthesis</h3>
+                            <h3 className="text-2xl font-bold tracking-tight">Smart Matching</h3>
                             <p className="text-text-muted text-sm sm:text-base font-light leading-relaxed">
-                                Our proprietary algorithms process thousands of flavor profiles to find the exact match for your current emotional and physical state.
+                                Our AI algorithms process thousands of flavor profiles to find the exact match for your current mood and preferences.
                             </p>
                         </div>
                     </div>
@@ -33,9 +33,9 @@ export default function AboutPage() {
                             <Cpu size={24} />
                         </div>
                         <div className="space-y-4">
-                            <h3 className="text-2xl font-bold tracking-tight">Distributed Precision</h3>
+                            <h3 className="text-2xl font-bold tracking-tight">Advanced Logic</h3>
                             <p className="text-text-muted text-sm sm:text-base font-light leading-relaxed">
-                                We leverage a distributed network of Large Language Models to ensure 100% uptime and the highest precision in every recommendation.
+                                We leverage the latest in machine learning to ensure the highest precision in every recommendation we provide.
                             </p>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ export default function AboutPage() {
                         <div className="space-y-4">
                             <h3 className="text-2xl font-bold tracking-tight">Real-time Data</h3>
                             <p className="text-text-muted text-sm sm:text-base font-light leading-relaxed">
-                                Integration with global market data allows us to provide accurate, real-time pricing and availability for every dish we suggest.
+                                Integration with local restaurant data allows us to provide accurate, real-time pricing and availability for every dish.
                             </p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ export default function AboutPage() {
                             <Shield size={24} />
                         </div>
                         <div className="space-y-4">
-                            <h3 className="text-2xl font-bold tracking-tight">Privacy Protocol</h3>
+                            <h3 className="text-2xl font-bold tracking-tight">Data Privacy</h3>
                             <p className="text-text-muted text-sm sm:text-base font-light leading-relaxed">
                                 Your dietary preferences and habits are encrypted and processed with the highest level of security. We never sell your data.
                             </p>

@@ -42,20 +42,20 @@ export default function ProfilePage() {
                         <div className="space-y-6">
                             <div className="flex items-center gap-4 text-text-muted">
                                 <div className="h-[1px] w-12 bg-border-base" />
-                                <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Neural Identity</span>
+                                <span className="text-[10px] font-bold uppercase tracking-[0.4em]">User Profile</span>
                             </div>
                             <h1 className="text-5xl sm:text-7xl font-bold tracking-tight leading-none">
                                 {user.username || "Anonymous"}
                             </h1>
                             <p className="text-text-muted text-lg font-light max-w-md">
-                                Managing your biological parameters and synthesis credits.
+                                Managing your dietary preferences and discovery credits.
                             </p>
                         </div>
                         <button
                             onClick={logout}
                             className="group flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-red-500 hover:text-red-600 transition-colors"
                         >
-                            Terminate Session <LogOut size={14} className="group-hover:translate-x-1 transition-transform" />
+                            Log Out <LogOut size={14} className="group-hover:translate-x-1 transition-transform" />
                         </button>
                     </header>
 
@@ -79,7 +79,7 @@ export default function ProfilePage() {
                                 </div>
 
                                 <div className="space-y-2 relative z-10">
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Synthesis Credits</p>
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Discovery Credits</p>
                                     <div className="flex items-baseline gap-3">
                                         <span className="text-7xl font-bold tabular-nums tracking-tighter">{user.tokens}</span>
                                         <span className="text-xs font-bold uppercase tracking-widest text-text-muted">Units</span>
@@ -92,7 +92,7 @@ export default function ProfilePage() {
                             </div>
 
                             <div className="p-8 border border-border-base rounded-3xl space-y-6">
-                                <h4 className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Neural Activity</h4>
+                                <h4 className="text-[10px] font-bold uppercase tracking-widest text-text-muted">Recent Activity</h4>
                                 <div className="flex items-end gap-1.5 h-20 px-2">
                                     {[40, 70, 45, 90, 65, 80, 50, 85, 60, 75].map((h, i) => (
                                         <motion.div
@@ -116,9 +116,9 @@ export default function ProfilePage() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 {[
                                     { icon: <User size={20} />, label: "Identifier", value: user.username || "Not Set", desc: "Your unique platform alias" },
-                                    { icon: <Mail size={20} />, label: "Neural Link", value: user.email, desc: "Primary communication channel" },
-                                    { icon: <Shield size={20} />, label: "Security Level", value: "Standard Protocol", desc: "Current encryption standard" },
-                                    { icon: <Clock size={20} />, label: "Platform Age", value: "Since 2026.01.01", desc: "Account initialization date" },
+                                    { icon: <Mail size={20} />, label: "Email Address", value: user.email, desc: "Primary communication channel" },
+                                    { icon: <Shield size={20} />, label: "Security Level", value: "Standard", desc: "Current account security" },
+                                    { icon: <Clock size={20} />, label: "Member Since", value: "2026.01.01", desc: "Account initialization date" },
                                 ].map((item, i) => (
                                     <div key={i} className="p-10 border border-border-base rounded-[2rem] space-y-8 hover:border-text-base/20 transition-all group bg-bg-base">
                                         <div className="w-10 h-10 bg-bg-surface border border-border-base rounded-xl flex items-center justify-center text-text-muted group-hover:text-text-base transition-colors">
@@ -135,7 +135,7 @@ export default function ProfilePage() {
 
                             <div className="p-10 border border-border-base rounded-[2rem] bg-bg-surface/50">
                                 <div className="flex items-center justify-between mb-8">
-                                    <h3 className="text-lg font-bold tracking-tight">Recent Syntheses</h3>
+                                    <h3 className="text-lg font-bold tracking-tight">Recent Discoveries</h3>
                                     <Link to="/discovery" className="text-[10px] font-bold uppercase tracking-widest text-text-muted hover:text-text-base transition-colors flex items-center gap-2">
                                         New Discovery <ArrowRight size={12} />
                                     </Link>
@@ -144,7 +144,7 @@ export default function ProfilePage() {
                                     {[
                                         { title: "Mediterranean Fusion", date: "2 hours ago", tokens: "-1" },
                                         { title: "High-Protein Nordic", date: "Yesterday", tokens: "-1" },
-                                        { title: "Keto Synthesis v4", date: "3 days ago", tokens: "-1" },
+                                        { title: "Keto Discovery v4", date: "3 days ago", tokens: "-1" },
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center justify-between p-5 rounded-2xl border border-border-base bg-bg-base hover:border-text-base/10 transition-colors">
                                             <div className="flex items-center gap-4">

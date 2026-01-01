@@ -49,15 +49,23 @@ export default function Results() {
                     animate={{ opacity: 1, y: 0 }}
                     className="max-w-2xl"
                 >
-                    <Link to="/" className="inline-flex items-center gap-2 text-text-muted hover:text-text-base transition-colors text-[10px] font-bold uppercase tracking-widest mb-6">
-                        <ArrowLeft size={14} />
-                        Back to Discovery
-                    </Link>
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-4">
-                        Synthesized Selections
-                    </h1>
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="flex items-center gap-2 text-text-muted mb-4"
+                    >
+                        <Sparkles size={14} />
+                        <span className="text-[10px] font-bold uppercase tracking-widest">AI Recommendations</span>
+                    </motion.div>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-6"
+                    >
+                        Your Perfect <br />Matches.
+                    </motion.h1>
                     <p className="text-text-muted text-base sm:text-lg font-light leading-relaxed max-w-lg">
-                        Curated culinary experiences derived from your neural profile and dietary framework.
+                        Curated culinary experiences derived from your preferences and dietary framework.
                     </p>
                 </motion.div>
 

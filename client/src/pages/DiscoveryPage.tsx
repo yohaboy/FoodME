@@ -59,7 +59,7 @@ export default function DiscoveryPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!user) {
-            setError("AUTHENTICATION_REQUIRED: Please sign in to access the neural engine.");
+            setError("AUTHENTICATION_REQUIRED: Please sign in to access the AI engine.");
             return;
         }
         setLoading(true);
@@ -85,10 +85,10 @@ export default function DiscoveryPage() {
                 const data = await response.json();
                 setError(data.error || "OUT_OF_TOKENS: Please recharge your account.");
             } else {
-                setError("SYNTHESIS_ERROR: The neural engine encountered an issue.");
+                setError("ERROR: The AI engine encountered an issue.");
             }
         } catch (error) {
-            setError("CONNECTION_ERROR: Failed to communicate with the neural engine.");
+            setError("CONNECTION_ERROR: Failed to communicate with the AI engine.");
         } finally {
             setLoading(false);
         }
@@ -127,17 +127,17 @@ export default function DiscoveryPage() {
                             className="flex items-center gap-2 text-text-muted mb-4"
                         >
                             <Sparkles size={14} />
-                            <span className="text-[10px] font-bold uppercase tracking-widest">Synthesis Engine</span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest">Recommendation Engine</span>
                         </motion.div>
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-6"
                         >
-                            Configure Your <br />Neural Profile.
+                            Find Your <br />Perfect Meal.
                         </motion.h1>
                         <p className="text-text-muted text-base font-light max-w-lg">
-                            Adjust the parameters below to help our engine synthesize the perfect culinary roadmap for you.
+                            Adjust the parameters below to help our AI find the perfect culinary matches for you.
                         </p>
                     </div>
                     <motion.div
@@ -187,7 +187,7 @@ export default function DiscoveryPage() {
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12">
                                     <div className="lg:col-span-4">
                                         <h3 className="text-2xl font-bold mb-3 tracking-tight">Current Mood</h3>
-                                        <p className="text-text-muted font-light leading-relaxed text-sm sm:text-base">Your current mood acts as the primary filter for our flavor synthesis engine.</p>
+                                        <p className="text-text-muted font-light leading-relaxed text-sm sm:text-base">Your current mood acts as the primary filter for our recommendation engine.</p>
                                     </div>
                                     <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         {MOODS.map((mood) => (
@@ -363,7 +363,7 @@ export default function DiscoveryPage() {
                                         {loading ? (
                                             <>
                                                 <Loader2 className="animate-spin" size={16} />
-                                                <span>Synthesizing...</span>
+                                                <span>Finding matches...</span>
                                             </>
                                         ) : (
                                             <>
