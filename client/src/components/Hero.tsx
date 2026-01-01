@@ -7,81 +7,71 @@ interface HeroProps {
 
 export default function Hero({ onStart }: HeroProps) {
     return (
-        <section className="relative min-h-[90vh] flex flex-col items-center justify-center bg-bg-base overflow-hidden px-6">
-            {/* Abstract CSS Centerpiece (No Image) */}
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center bg-white overflow-hidden px-6">
+            {/* Creative Background Element: A single, ultra-thin vertical line */}
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2 }}
-                className="relative w-64 h-64 mb-16 flex items-center justify-center"
-            >
-                {/* Rotating Rings */}
-                <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 border border-text-base/5 rounded-[38%_62%_63%_37%/41%_44%_56%_59%]"
-                />
-                <motion.div
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-4 border border-text-base/10 rounded-[50%_50%_30%_70%/50%_50%_70%_30%]"
-                />
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "20vh", opacity: 0.1 }}
+                transition={{ duration: 2, ease: "circOut" }}
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] bg-black z-10"
+            />
 
-                {/* The "Core" */}
+            <div className="text-center max-w-4xl relative z-10">
                 <motion.div
-                    animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.3, 0.6, 0.3]
-                    }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-4 h-4 bg-text-base rounded-full shadow-[0_0_30px_rgba(0,0,0,0.2)] dark:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
-                />
-            </motion.div>
-
-            <div className="text-center max-w-3xl relative z-10 flex flex-col items-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="space-y-6"
+                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="space-y-12"
                 >
-                    <h1 className="text-5xl sm:text-7xl font-light tracking-[0.15em] uppercase leading-none">
-                        Smart <br />
-                        <span className="font-bold">Dining</span>
-                    </h1>
+                    <div className="relative inline-block">
+                        <h1 className="text-8xl sm:text-9xl lg:text-[12rem] font-black tracking-tighter leading-[0.75] uppercase select-none">
+                            Food <br />
+                            <motion.span
+                                initial={{ opacity: 0.1 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 2, delay: 0.5 }}
+                                className="font-thin italic text-black/20"
+                            >
+                                Me.
+                            </motion.span>
+                        </h1>
 
-                    <div className="h-[1px] w-12 bg-text-base/20 mx-auto" />
+                        <motion.div
+                            animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.2, 0.4, 0.2]
+                            }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute -top-6 -right-6 w-3 h-3 bg-black rounded-full"
+                        />
+                    </div>
 
-                    <p className="text-text-muted text-[10px] sm:text-xs font-bold tracking-[0.4em] uppercase max-w-md mx-auto leading-loose">
-                        Discovering the perfect meal <br />
-                        tailored to your taste and mood.
-                    </p>
+                    <div className="space-y-10 max-w-lg mx-auto">
+                        <div className="space-y-4">
+                            <p className="text-black/40 text-[10px] sm:text-xs font-bold tracking-[0.8em] uppercase leading-relaxed">
+                                Intelligent Selection
+                            </p>
+                            <p className="text-lg sm:text-xl font-medium leading-tight tracking-tight text-black/80">
+                                Generate your perfect food choices based on your current mood, dietary framework, and real-time cravings. We simplify the decision, so you can focus on the flavor.
+                            </p>
+                        </div>
+
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1.2, duration: 1 }}
+                        >
+                            <button
+                                onClick={onStart}
+                                className="group relative inline-flex items-center gap-8 text-[10px] font-bold uppercase tracking-[0.5em] py-8 px-16 border border-black/10 rounded-full bg-black text-white transition-all duration-700 ease-in-out overflow-hidden"
+                            >
+                                <span className="relative z-10">Start Discovery</span>
+                                <ArrowRight size={14} className="relative z-10 group-hover:translate-x-2 transition-transform duration-500" />
+                                <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-in-out" />
+                            </button>
+                        </motion.div>
+                    </div>
                 </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="mt-16"
-                >
-                    <button
-                        onClick={onStart}
-                        className="group relative inline-flex items-center gap-6 text-[10px] font-bold uppercase tracking-[0.5em] py-5 px-12 border border-text-base/10 rounded-full hover:bg-text-base hover:text-bg-base transition-all duration-700 ease-in-out"
-                    >
-                        Start Discovery
-                        <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform duration-500" />
-                    </button>
-                </motion.div>
-            </div>
-
-            {/* Subtle background markers */}
-            <div className="absolute bottom-12 left-12 hidden lg:block">
-                <div className="flex items-center gap-4">
-                    <div className="w-8 h-[1px] bg-text-base/10" />
-                    <span className="text-[8px] font-bold uppercase tracking-[0.5em] text-text-muted/40">
-                        V2.0 / AI POWERED
-                    </span>
-                </div>
             </div>
         </section>
     );

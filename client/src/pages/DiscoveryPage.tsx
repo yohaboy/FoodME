@@ -167,7 +167,7 @@ export default function DiscoveryPage() {
                     >
                         <span className="max-w-md leading-relaxed">{error}</span>
                         {!user && (
-                            <Link to="/login" className="btn-primary py-3 px-8 text-[10px]">
+                            <Link to="/login" className="btn-primary py-3 px-8 text-[10px] text-white">
                                 Sign In Now
                             </Link>
                         )}
@@ -210,7 +210,7 @@ export default function DiscoveryPage() {
                                     </div>
                                 </div>
                                 <div className="flex justify-end pt-12 border-t border-border-base">
-                                    <button type="button" onClick={nextStep} className="btn-primary py-4 px-10 text-[10px]">
+                                    <button type="button" onClick={nextStep} className="btn-primary py-4 px-10 text-[14px]">
                                         Proceed to Diet <ArrowRight size={14} />
                                     </button>
                                 </div>
@@ -251,10 +251,10 @@ export default function DiscoveryPage() {
                                     </div>
                                 </div>
                                 <div className="flex flex-col sm:flex-row justify-between gap-4 pt-12 border-t border-border-base">
-                                    <button type="button" onClick={prevStep} className="btn-secondary py-4 px-10 text-[10px] order-2 sm:order-1">
+                                    <button type="button" onClick={prevStep} className="btn-secondary py-4 px-10 text-[14px] order-2 sm:order-1">
                                         <ArrowLeft size={14} /> Back
                                     </button>
-                                    <button type="button" onClick={nextStep} className="btn-primary py-4 px-10 text-[10px] order-1 sm:order-2">
+                                    <button type="button" onClick={nextStep} className="btn-primary py-4 px-10 text-[14px] order-1 sm:order-2">
                                         Finalize <ArrowRight size={14} />
                                     </button>
                                 </div>
@@ -352,7 +352,7 @@ export default function DiscoveryPage() {
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row justify-between gap-4 pt-12 border-t border-border-base">
-                                    <button type="button" onClick={prevStep} className="btn-secondary py-4 px-10 text-[10px] order-2 sm:order-1">
+                                    <button type="button" onClick={prevStep} className="btn-secondary py-4 px-10 text-[14px] order-2 sm:order-1">
                                         <ArrowLeft size={14} /> Back
                                     </button>
                                     <button
