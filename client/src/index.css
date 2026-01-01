@@ -13,16 +13,6 @@
     --selection-text: #ffffff;
 }
 
-.dark {
-    --bg-base: #0a0a0a;
-    --bg-surface: #0f0f0f;
-    --text-base: #ffffff;
-    --text-muted: #888888;
-    --border-base: #1a1a1a;
-    --selection-bg: #ffffff;
-    --selection-text: #000000;
-}
-
 /* Map tokens into Tailwind theme variables */
 @theme inline {
     --font-sans: "Inter", sans-serif;
@@ -54,8 +44,12 @@
         @apply text-[10px] font-bold uppercase tracking-[0.4em] text-text-muted hover:text-text-base transition-colors;
     }
 
+    .glass {
+        @apply bg-bg-surface/50 backdrop-blur-xl border border-white/10 shadow-2xl;
+    }
+
     .btn-primary {
-        @apply bg-text-base text-bg-base px-10 py-5 rounded-full font-bold text-[10px] uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all hover:opacity-90 active:scale-95 shadow-lg hover:shadow-xl;
+        @apply bg-text-base text-bg-base px-10 py-5 rounded-full font-bold text-[10px] uppercase tracking-[0.3em] flex items-center justify-center gap-3 transition-all hover:opacity-90 active:scale-95 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
     }
 
     .btn-secondary {

@@ -48,9 +48,9 @@ export default function LoginPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="space-y-12 sm:space-y-20"
                 >
-                    <div className="space-y-6 sm:space-y-8">
-                        <h1 className="text-5xl sm:text-8xl font-bold tracking-tighter leading-none">SIGN_IN.</h1>
-                        <p className="text-text-muted text-lg sm:text-xl font-light max-w-md">Authenticate to access your neural culinary profile.</p>
+                    <div className="space-y-4">
+                        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">Sign In</h1>
+                        <p className="text-text-muted text-base sm:text-lg font-light max-w-md">Authenticate to access your neural culinary profile.</p>
                     </div>
 
                     {error && (
@@ -65,13 +65,13 @@ export default function LoginPage() {
 
                     <form onSubmit={handleSubmit} className="space-y-8 sm:space-y-12">
                         <div className="space-y-4">
-                            <label className="block text-[10px] font-bold uppercase tracking-[0.4em] text-text-muted ml-2">Email Identifier</label>
+                            <label className="block text-[10px] font-bold uppercase tracking-widest text-text-muted ml-2">Email Identifier</label>
                             <div className="relative">
-                                <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-text-muted" size={20} />
+                                <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-text-muted" size={18} />
                                 <input
                                     type="email"
                                     required
-                                    className="input-field pl-16 h-16 sm:h-20 text-base sm:text-lg"
+                                    className="input-field pl-14 h-14 text-sm"
                                     placeholder="identity@foodme.ai"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -80,13 +80,13 @@ export default function LoginPage() {
                         </div>
 
                         <div className="space-y-4">
-                            <label className="block text-[10px] font-bold uppercase tracking-[0.4em] text-text-muted ml-2">Security Key</label>
+                            <label className="block text-[10px] font-bold uppercase tracking-widest text-text-muted ml-2">Security Key</label>
                             <div className="relative">
-                                <Lock className="absolute left-6 top-1/2 -translate-y-1/2 text-text-muted" size={20} />
+                                <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-text-muted" size={18} />
                                 <input
                                     type="password"
                                     required
-                                    className="input-field pl-16 h-16 sm:h-20 text-base sm:text-lg"
+                                    className="input-field pl-14 h-14 text-sm"
                                     placeholder="••••••••"
                                     value={formData.password}
                                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -97,12 +97,12 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="btn-primary w-full h-16 sm:h-20 text-sm sm:text-base"
+                            className="btn-primary w-full h-14 text-xs"
                         >
-                            {loading ? <Loader2 className="animate-spin" size={24} /> : (
-                                <div className="flex items-center gap-4">
+                            {loading ? <Loader2 className="animate-spin" size={20} /> : (
+                                <div className="flex items-center gap-3">
                                     <span>Enter Platform</span>
-                                    <ArrowRight size={20} />
+                                    <ArrowRight size={16} />
                                 </div>
                             )}
                         </button>

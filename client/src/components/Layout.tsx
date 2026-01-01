@@ -11,7 +11,6 @@ import {
     Coins
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
-import { useTheme } from "../context/ThemeContext";
 import { AnimatePresence, motion } from "framer-motion";
 
 interface LayoutProps {
@@ -20,20 +19,19 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
     const { user, logout } = useAuth();
-    const { theme, toggleTheme } = useTheme();
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
     const location = useLocation();
 
     const navLinks = [
-        { name: "Discovery", path: "/" },
+        { name: "Discovery", path: "/discovery" },
         { name: "Intelligence", path: "/about" },
         { name: "Community", path: "/contact" },
     ];
 
     return (
-        <div className="min-h-screen flex flex-col bg-bg-base text-text-base selection:bg-text-base selection:text-bg-base overflow-x-hidden">
+        <div className="min-h-screen flex flex-col bg-bg-base text-text-base selection:bg-text-base selection:text-bg-base">
             {/* Top Navigation Bar */}
-            <header className="sticky top-0 z-50 bg-bg-base/80 backdrop-blur-2xl border-b border-border-base">
+            <header className="sticky top-0 z-[100] bg-bg-base/80 backdrop-blur-2xl border-b border-border-base">
                 <div className="container-custom px-6 sm:px-10 py-5 sm:py-6 flex items-center justify-between">
                     <div className="flex items-center gap-12 lg:gap-16">
                         <Link to="/" className="flex items-center gap-3 group shrink-0">
@@ -59,13 +57,6 @@ export default function Layout({ children }: LayoutProps) {
                     </div>
 
                     <div className="flex items-center gap-3 sm:gap-6">
-                        <button
-                            onClick={toggleTheme}
-                            className="p-2.5 sm:p-3 rounded-2xl hover:bg-bg-surface transition-all border border-transparent hover:border-border-base"
-                            aria-label="Toggle Theme"
-                        >
-                            {theme === 'light' ? <Moon size={18} className="sm:size-[20px]" /> : <Sun size={18} className="sm:size-[20px]" />}
-                        </button>
 
                         <div className="h-8 w-[1px] bg-border-base hidden sm:block" />
 

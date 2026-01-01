@@ -6,7 +6,8 @@ import {
     Star,
     Share2,
     Heart,
-    Sparkles
+    Sparkles,
+    ChevronRight
 } from "lucide-react";
 
 interface Recommendation {
@@ -23,13 +24,16 @@ export default function Results() {
 
     if (recommendations.length === 0) {
         return (
-            <div className="container-custom min-h-[70vh] flex flex-col items-center justify-center text-center px-6 sm:px-10">
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tighter mb-6">NULL_RESULTS</h2>
-                <p className="text-text-muted mb-12 max-w-lg text-base sm:text-lg font-light leading-relaxed">
-                    The synthesis engine failed to find a match within your current parameters.
-                    Broaden your framework and try again.
+            <div className="container-custom min-h-[60vh] flex flex-col items-center justify-center text-center px-6">
+                <div className="w-16 h-16 bg-bg-surface rounded-2xl flex items-center justify-center mb-8 border border-border-base">
+                    <Sparkles className="text-text-muted" size={32} />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">No matches found</h2>
+                <p className="text-text-muted mb-10 max-w-md text-sm sm:text-base font-light leading-relaxed">
+                    The synthesis engine couldn't find a match with your current parameters.
+                    Try broadening your search criteria.
                 </p>
-                <Link to="/" className="btn-primary">
+                <Link to="/" className="btn-primary py-4 px-8">
                     Return to Discovery
                 </Link>
             </div>
@@ -37,22 +41,22 @@ export default function Results() {
     }
 
     return (
-        <div className="container-custom py-8 sm:py-12 md:py-24 px-6 sm:px-10">
+        <div className="container-custom py-12 sm:py-20 px-6 sm:px-10">
             {/* Header Section */}
-            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 sm:gap-12 mb-16 sm:mb-24 pb-10 sm:pb-12 border-b border-border-base">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-8 border-b border-border-base">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="max-w-3xl"
+                    className="max-w-2xl"
                 >
-                    <Link to="/" className="inline-flex items-center gap-2 text-text-muted hover:text-text-base transition-colors text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.3em] mb-6 sm:mb-8">
+                    <Link to="/" className="inline-flex items-center gap-2 text-text-muted hover:text-text-base transition-colors text-[10px] font-bold uppercase tracking-widest mb-6">
                         <ArrowLeft size={14} />
                         Back to Discovery
                     </Link>
-                    <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.85] mb-6 sm:mb-8">
-                        SYNTHESIZED<br />SELECTIONS.
+                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-4">
+                        Synthesized Selections
                     </h1>
-                    <p className="text-text-muted text-lg sm:text-xl font-light leading-relaxed max-w-xl">
+                    <p className="text-text-muted text-base sm:text-lg font-light leading-relaxed max-w-lg">
                         Curated culinary experiences derived from your neural profile and dietary framework.
                     </p>
                 </motion.div>
@@ -61,77 +65,74 @@ export default function Results() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="flex flex-col sm:flex-row gap-4"
+                    className="flex gap-3"
                 >
-                    <button className="btn-secondary w-full sm:w-auto">
-                        <Share2 size={16} /> Share
+                    <button className="btn-secondary py-3 px-6 text-[10px]">
+                        <Share2 size={14} /> Share
                     </button>
-                    <button className="btn-primary w-full sm:w-auto">
-                        <Heart size={16} /> Save All
+                    <button className="btn-primary py-3 px-6 text-[10px]">
+                        <Heart size={14} /> Save All
                     </button>
                 </motion.div>
             </div>
 
             {/* Results Grid */}
-            <div className="responsive-grid">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {recommendations.map((rec, index) => (
                     <motion.div
                         key={rec.id}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.15 }}
-                        className="group"
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="group flex flex-col"
                     >
-                        <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] sm:rounded-3xl mb-6 sm:mb-8 bg-bg-surface border border-border-base">
+                        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-5 bg-bg-surface border border-border-base">
                             <img
                                 src={rec.image_url}
                                 alt={rec.name}
-                                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                            <div className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-bg-base/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl border border-border-base flex items-center gap-2">
-                                <Star size={12} className="fill-text-base sm:size-[14px]" />
-                                <span className="text-[10px] sm:text-xs font-bold tabular-nums">4.9</span>
-                            </div>
-
-                            <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8">
-                                <div className="flex items-center gap-2 text-white/80 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.3em] mb-2">
-                                    <Sparkles size={12} />
-                                    Top Synthesis
-                                </div>
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tighter leading-none">
-                                    {rec.name}
-                                </h3>
+                            <div className="absolute top-4 right-4 bg-bg-base/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-border-base flex items-center gap-1.5 shadow-sm">
+                                <Star size={12} className="fill-text-base" />
+                                <span className="text-[10px] font-bold tabular-nums">4.9</span>
                             </div>
                         </div>
 
-                        <div className="space-y-4 sm:space-y-6 px-2">
-                            <div className="flex justify-between items-start gap-4">
-                                <h3 className="text-2xl sm:text-3xl font-bold tracking-tighter group-hover:text-text-muted transition-colors leading-none uppercase">{rec.name}</h3>
-                                <div className="flex items-baseline gap-1 font-bold text-xl sm:text-2xl tabular-nums">
-                                    <span className="text-xs text-text-muted">$</span>
+                        <div className="flex-1 flex flex-col">
+                            <div className="flex justify-between items-start gap-4 mb-3">
+                                <h3 className="text-xl font-bold tracking-tight group-hover:text-text-muted transition-colors leading-tight">
+                                    {rec.name}
+                                </h3>
+                                <div className="flex items-baseline gap-0.5 font-bold text-lg tabular-nums">
+                                    <span className="text-[10px] text-text-muted">$</span>
                                     {rec.estimated_cost}
                                 </div>
                             </div>
 
-                            <p className="text-text-muted text-xs sm:text-sm leading-relaxed font-light line-clamp-2">
+                            <p className="text-text-muted text-sm leading-relaxed font-light line-clamp-2 mb-6">
                                 {rec.description}
                             </p>
 
-                            <div className="flex items-center gap-6 sm:gap-8 pt-4 sm:pt-6 border-t border-border-base">
-                                <div className="flex flex-col gap-1">
-                                    <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-text-muted">Prep Time</span>
-                                    <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold">
-                                        <Clock size={12} /> 25 MIN
+                            <div className="mt-auto flex items-center justify-between pt-5 border-t border-border-base">
+                                <div className="flex items-center gap-4">
+                                    <div className="flex flex-col gap-0.5">
+                                        <span className="text-[8px] font-bold uppercase tracking-widest text-text-muted">Time</span>
+                                        <div className="flex items-center gap-1.5 text-[10px] font-bold">
+                                            <Clock size={12} /> 25 MIN
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col gap-0.5">
+                                        <span className="text-[8px] font-bold uppercase tracking-widest text-text-muted">Intensity</span>
+                                        <div className="flex items-center gap-1.5 text-[10px] font-bold">
+                                            <Sparkles size={12} /> MODERATE
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col gap-1">
-                                    <span className="text-[8px] font-bold uppercase tracking-[0.3em] text-text-muted">Intensity</span>
-                                    <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold">
-                                        <Sparkles size={12} /> MODERATE
-                                    </div>
-                                </div>
+                                <button className="p-2 rounded-full bg-bg-surface border border-border-base hover:border-text-base transition-colors group/btn">
+                                    <ChevronRight size={16} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                                </button>
                             </div>
                         </div>
                     </motion.div>
@@ -143,18 +144,18 @@ export default function Results() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mt-32 sm:mt-48 py-24 sm:py-32 border-t border-border-base text-center space-y-10 sm:space-y-12 mb-16 sm:mb-24"
+                className="mt-24 py-20 border-t border-border-base text-center space-y-8"
             >
-                <div className="space-y-4 sm:space-y-6">
-                    <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tighter">RE_SYNTHESIZE?</h2>
-                    <p className="text-text-muted text-lg sm:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                <div className="space-y-3">
+                    <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Re-synthesize?</h2>
+                    <p className="text-text-muted text-base font-light max-w-xl mx-auto leading-relaxed">
                         Our engine is iterative. If these results don't align with your vision,
                         we can adjust the neural parameters.
                     </p>
                 </div>
-                <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-                    <Link to="/" className="btn-secondary px-10 sm:px-12">Adjust Parameters</Link>
-                    <button className="btn-primary px-10 sm:px-12">Regenerate Menu</button>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <Link to="/" className="btn-secondary py-4 px-10 text-[10px]">Adjust Parameters</Link>
+                    <button className="btn-primary py-4 px-10 text-[10px]">Regenerate Menu</button>
                 </div>
             </motion.section>
         </div>
