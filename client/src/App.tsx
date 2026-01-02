@@ -9,7 +9,7 @@ import { AuthProvider } from "./context/AuthContext";
 
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
-import ProfilePage from "./pages/ProfilePage";
+
 
 function App() {
     return (
@@ -23,7 +23,7 @@ function App() {
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/features" element={<AboutPage />} />
-                        <Route path="/profile" element={<ProfilePage />} />
+
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Layout>

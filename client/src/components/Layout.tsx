@@ -66,12 +66,12 @@ export default function Layout({ children }: LayoutProps) {
                                         <Coins size={14} className="text-text-muted" />
                                         <span className="text-[10px] font-bold tabular-nums">{user.tokens}</span>
                                     </div>
-                                    <Link to="/profile" className="flex items-center gap-3 group">
-                                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-bg-surface border border-border-base flex items-center justify-center group-hover:border-text-base transition-colors overflow-hidden">
-                                            <User size={16} className="text-text-muted group-hover:text-text-base transition-colors" />
+                                    <div className="flex items-center gap-3 group">
+                                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-bg-surface border border-border-base flex items-center justify-center overflow-hidden">
+                                            <User size={16} className="text-text-muted" />
                                         </div>
                                         <span className="hidden xl:inline text-[10px] font-bold uppercase tracking-[0.2em]">{user.username || user.email}</span>
-                                    </Link>
+                                    </div>
                                 </div>
                                 <button
                                     onClick={logout}
@@ -119,13 +119,11 @@ export default function Layout({ children }: LayoutProps) {
                             ))}
                             {user ? (
                                 <>
-                                    <Link
-                                        to="/profile"
+                                    <div
                                         className="text-4xl sm:text-5xl font-bold tracking-tighter flex items-center gap-4"
-                                        onClick={() => setMobileMenuOpen(false)}
                                     >
-                                        Profile <div className="px-3 py-1 bg-bg-surface border border-border-base rounded-xl text-sm tabular-nums flex items-center gap-2"><Coins size={14} /> {user.tokens}</div>
-                                    </Link>
+                                        Account <div className="px-3 py-1 bg-bg-surface border border-border-base rounded-xl text-sm tabular-nums flex items-center gap-2"><Coins size={14} /> {user.tokens}</div>
+                                    </div>
                                     <button
                                         onClick={() => { logout(); setMobileMenuOpen(false); }}
                                         className="text-4xl sm:text-5xl font-bold tracking-tighter text-red-500 text-left"
