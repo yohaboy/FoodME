@@ -117,7 +117,7 @@ export default function DiscoveryPage() {
     );
 
     return (
-        <div className="container-custom py-12 sm:py-20 px-6 sm:px-10">
+        <div className="container-custom py-10 sm:py-16 px-6 sm:px-10">
             <header className="mb-16 sm:mb-24">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 sm:gap-12">
                     <div className="max-w-2xl">
@@ -134,7 +134,7 @@ export default function DiscoveryPage() {
                             animate={{ opacity: 1, y: 0 }}
                             className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-6"
                         >
-                            Find Your <br />Perfect Meal.
+                            Find Your Perfect Meal.
                         </motion.h1>
                         <p className="text-text-muted text-base font-light max-w-lg">
                             Adjust the parameters below to help our AI find the perfect culinary matches for you.
@@ -344,6 +344,8 @@ export default function DiscoveryPage() {
                                                         max={200}
                                                         step={5}
                                                         onValueChange={([min, max]) => setFormData({ ...formData, cost_range_min: min, cost_range_max: max })}
+                                                        className="bg-black/80"
+
                                                     />
                                                 </div>
                                             </div>

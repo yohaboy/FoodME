@@ -37,8 +37,6 @@ function RecommendationForm(props: MyChoice) {
 
       const result = await response.json();
       setFinalRecommendation(result.name);
-
-      console.log("Recommended food:", result);
     } catch (error) {
       console.error("Error sending preferences:", error);
     }

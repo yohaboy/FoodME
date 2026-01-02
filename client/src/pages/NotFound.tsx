@@ -20,13 +20,13 @@ export default function NotFound() {
                 <div className="space-y-6">
                     <h2 className="text-4xl sm:text-6xl font-bold tracking-tighter">PATH_NOT_FOUND</h2>
                     <p className="text-text-muted text-xl font-light max-w-md mx-auto leading-relaxed">
-                        The neural coordinates you provided do not exist within our current framework.
+                        The page you are looking for does not exist within our current site.
                     </p>
                 </div>
 
-                <Link to="/" className="btn-primary inline-flex items-center gap-3">
+                <Link to="/" className="btn-primary inline-flex items-center gap-3 text-white">
                     <ArrowLeft size={18} />
-                    Return to Nexus
+                    Return to Home
                 </Link>
             </motion.div>
         </div>

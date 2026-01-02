@@ -8,7 +8,6 @@ import RegisterPage from "./pages/RegisterPage";
 import { AuthProvider } from "./context/AuthContext";
 
 import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import ProfilePage from "./pages/ProfilePage";
 
@@ -23,8 +22,7 @@ function App() {
                         <Route path="/results" element={<Results />} />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
-                        <Route path="/about" element={<AboutPage />} />
-                        <Route path="/contact" element={<ContactPage />} />
+                        <Route path="/features" element={<AboutPage />} />
                         <Route path="/profile" element={<ProfilePage />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>

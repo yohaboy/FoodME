@@ -1,20 +1,12 @@
-import { motion } from "framer-motion";
 import { Brain, Cpu, Zap, Shield, ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
     return (
         <div className="bg-bg-base min-h-screen">
             <div className="container-custom py-24 sm:py-32 px-6 sm:px-10">
-                <header className="mb-32 overflow-hidden">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-[clamp(3rem,10vw,12rem)] font-bold tracking-tighter leading-[0.8] w-full whitespace-nowrap"
-                    >
-                        Personalized <span className="text-text-muted italic font-light">Food Discovery.</span>
-                    </motion.h1>
-                </header>
-
+                <h1 className="text-6xl font-bold tracking-tighter leading-[0.8] w-full mb-12 text-center">
+                    Core <span className="text-text-muted italic font-light">Features</span>
+                </h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border-base border border-border-base rounded-[2rem] overflow-hidden">
                     <div className="bg-bg-base p-12 sm:p-16 space-y-8 hover:bg-bg-surface transition-colors group">
                         <div className="w-12 h-12 bg-text-base text-bg-base rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -68,11 +60,11 @@ export default function AboutPage() {
                 <footer className="mt-32 pt-16 border-t border-border-base flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
                     <div className="max-w-md">
                         <h4 className="text-xl font-bold mb-4">Ready to begin?</h4>
-                        <p className="text-text-muted text-sm font-light">Join thousands of others who have optimized their culinary life with FoodME.</p>
+                        <p className="text-text-muted text-sm font-light">Join thousands of others who have optimized their culinary life with Food.ME.</p>
                     </div>
-                    <button className="btn-primary px-12 py-6 text-xs">
+                    <a href="/discovery" className="btn-primary px-12 py-6 text-xs text-white">
                         Start Discovery <ArrowRight size={16} />
-                    </button>
+                    </a>
                 </footer>
             </div>
         </div>

@@ -25,12 +25,12 @@ export default function Hero({ onStart }: HeroProps) {
                 >
                     <div className="relative inline-block">
                         <h1 className="text-8xl sm:text-9xl lg:text-[12rem] font-black tracking-tighter leading-[0.75] uppercase select-none">
-                            Food <br />
+                            Food.
                             <motion.span
                                 initial={{ opacity: 0.1 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 2, delay: 0.5 }}
-                                className="font-thin italic text-black/20"
+                                className="italic text-black/20"
                             >
                                 Me.
                             </motion.span>
@@ -48,10 +48,10 @@ export default function Hero({ onStart }: HeroProps) {
 
                     <div className="space-y-10 max-w-lg mx-auto">
                         <div className="space-y-4">
-                            <p className="text-black/40 text-[10px] sm:text-xs font-bold tracking-[0.8em] uppercase leading-relaxed">
+                            <p className="text-black/40 text-[12px] sm:text-xs font-bold tracking-[0.8em] uppercase leading-relaxed">
                                 Intelligent Selection
                             </p>
-                            <p className="text-lg sm:text-xl font-medium leading-tight tracking-tight text-black/80">
+                            <p className="text-lg sm:text-xl font-medium leading-tight tracking-tight text-black/80 font-serif">
                                 Generate your perfect food choices based on your current mood, dietary framework, and real-time cravings. We simplify the decision, so you can focus on the flavor.
                             </p>
                         </div>

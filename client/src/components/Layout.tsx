@@ -24,8 +24,7 @@ export default function Layout({ children }: LayoutProps) {
 
     const navLinks = [
         { name: "Discovery", path: "/discovery" },
-        { name: "Intelligence", path: "/about" },
-        { name: "Community", path: "/contact" },
+        { name: "Features", path: "/features" },
     ];
 
     return (
@@ -39,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
                                 <ChefHat size={20} className="sm:size-[22px]" />
                             </div>
                             <span className="text-2xl sm:text-3xl font-bold tracking-tighter">
-                                FoodME
+                                Food.ME
                             </span>
                         </Link>
 
@@ -83,7 +82,7 @@ export default function Layout({ children }: LayoutProps) {
                                 </button>
                             </div>
                         ) : (
-                            <Link to="/login" className="hidden sm:flex items-center justify-center text-[10px] font-bold uppercase tracking-[0.3em] bg-text-base text-blue-600 px-8 py-3.5 sm:py-4 rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl active:scale-95">
+                            <Link to="/login" className="hidden sm:flex items-center justify-center text-[10px] font-bold uppercase tracking-[0.3em] bg-text-base text-white px-8 py-3.5 sm:py-4 rounded-full hover:opacity-90 transition-all shadow-lg hover:shadow-xl active:scale-95">
                                 Sign In
                             </Link>
                         )}
@@ -137,7 +136,7 @@ export default function Layout({ children }: LayoutProps) {
                             ) : (
                                 <Link
                                     to="/login"
-                                    className="text-4xl sm:text-5xl font-bold tracking-tighter text-blue-600"
+                                    className="text-4xl sm:text-5xl font-bold tracking-tighter text-white"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     Sign In

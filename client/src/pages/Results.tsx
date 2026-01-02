@@ -62,7 +62,7 @@ export default function Results() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight mb-6"
                     >
-                        Your Perfect <br />Matches.
+                        Your Perfect Matches.
                     </motion.h1>
                     <p className="text-text-muted text-base sm:text-lg font-light leading-relaxed max-w-lg">
                         Curated culinary experiences derived from your preferences and dietary framework.
@@ -161,9 +161,8 @@ export default function Results() {
                         we can adjust the neural parameters.
                     </p>
                 </div>
-                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <div className="flex justify-center">
                     <Link to="/" className="btn-secondary py-4 px-10 text-[10px]">Adjust Parameters</Link>
-                    <button className="btn-primary py-4 px-10 text-[10px]">Regenerate Menu</button>
                 </div>
             </motion.section>
         </div>

@@ -50,7 +50,7 @@ export default function LoginPage() {
                 >
                     <div className="space-y-4">
                         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">Sign In</h1>
-                        <p className="text-text-muted text-base sm:text-lg font-light max-w-md">Authenticate to access your neural culinary profile.</p>
+                        <p className="text-text-muted text-base sm:text-lg font-light max-w-md">Authenticate to access yourself by signing in.</p>
                     </div>
 
                     {error && (
@@ -72,7 +72,7 @@ export default function LoginPage() {
                                     type="email"
                                     required
                                     className="input-field pl-14 h-14 text-sm"
-                                    placeholder="identity@foodme.ai"
+                                    placeholder="identity@food.me"
                                     value={formData.email}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 />
